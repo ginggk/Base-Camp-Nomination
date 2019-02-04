@@ -13,7 +13,7 @@ public class Nominee {
     public void callingMethods() {
         isNomineeASenior();
         getEmail();
-        showNominee();
+//        showNominee();
     }
 
     public void getName() {
@@ -46,9 +46,13 @@ public class Nominee {
     }
 
     public void showNominee() {
-        nominees.add(new NomineeInfo(name,isSenior,email, hsGradFrom));
+        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom));
         for (var nominee : nominees) {
-            System.out.print(String.format("Name: %s", nominee.name ));
+            System.out.println(String.format("Name: %s", nominee.name));
+            System.out.println(String.format("Email: %s", nominee.email));
+            System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
+            System.out.println(String.format("High School: %s", nominee.hsGradFrom));
+
         }
     }
 
