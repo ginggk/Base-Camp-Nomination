@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -5,24 +6,29 @@ public class Nominee {
     Scanner input = new Scanner(System.in);
     String isSenior;
     String hsGradFrom;
+    String name;
+    String email;
+    ArrayList<NomineeInfo> nominees = new ArrayList<>();
 
     public void callingMethods() {
         isNomineeASenior();
         getEmail();
+        showNominee();
     }
 
-    public String getName() {
+    public void getName() {
         System.out.print("Full name: ");
-        String name = input.nextLine();
-        return name;
+        String nameInput = input.nextLine();
+        name = nameInput;
     }
 
-    public String getEmail() {
+    public void getEmail() {
         while (true) {
             System.out.print("Email: ");
-            String email = input.nextLine();
-            if (isEmailValid(email)) {
-                return email;
+            String emailInput = input.nextLine();
+            if (isEmailValid(emailInput)) {
+                email = emailInput;
+                break;
             }
             else {
                 System.out.println("Sorry, invalid email");
@@ -32,11 +38,18 @@ public class Nominee {
     }
 
     public void getHS() {
-        System.out.print("What high school are you currently in? ");
+        System.out.print("What high school is your nominee currently in? ");
         String hs = input.nextLine();
         hsGradFrom = hs;
         getName();
 
+    }
+
+    public void showNominee() {
+        nominees.add(new NomineeInfo(name,isSenior,email, hsGradFrom));
+        for (var nominee : nominees) {
+            System.out.print(String.format("Name: %s", nominee.name ));
+        }
     }
 
     public boolean isEmailValid(String email) {
@@ -50,12 +63,13 @@ public class Nominee {
     }
 
     public void isNomineeASenior() {
-        System.out.println("Is your nominee currently a senior? ");
+        System.out.print("Is your nominee currently a senior? ");
         String senior = input.nextLine();
         while (true) {
             if (senior.equals("yes")) {
                 getHS();
                 isSenior = "yes";
+
                 break;
 
 
