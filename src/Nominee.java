@@ -4,10 +4,10 @@ import java.util.regex.Pattern;
 public class Nominee {
     Scanner input = new Scanner(System.in);
     String isSenior;
+    String hsGradFrom;
 
     public void callingMethods() {
         isNomineeASenior();
-        getName();
         getEmail();
     }
 
@@ -31,6 +31,14 @@ public class Nominee {
 
     }
 
+    public void getHS() {
+        System.out.print("What high school are you currently in? ");
+        String hs = input.nextLine();
+        hsGradFrom = hs;
+        getName();
+
+    }
+
     public boolean isEmailValid(String email) {
         String emailReg = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
@@ -46,7 +54,10 @@ public class Nominee {
         String senior = input.nextLine();
         while (true) {
             if (senior.equals("yes")) {
+                getHS();
                 isSenior = "yes";
+                break;
+
 
 
             } else {
