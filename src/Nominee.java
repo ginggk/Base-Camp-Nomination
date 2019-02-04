@@ -8,12 +8,15 @@ public class Nominee {
     String hsGradFrom;
     String name;
     String email;
+    Double distanceToDrive;
     ArrayList<NomineeInfo> nominees = new ArrayList<>();
 
-    public void callingMethods() {
+    public void creatingNominee() {
         isNomineeASenior();
         getEmail();
-//        showNominee();
+        findDistance();
+        showNominee();
+
     }
 
     public void getName() {
@@ -37,6 +40,25 @@ public class Nominee {
 
     }
 
+    public void findDistance() {
+        while (true) {
+            System.out.print("Driving distance(miles)? ");
+            double driveDis = input.nextDouble();
+            if (driveDis > 150) {
+                System.out.println("Might want to relocate closer.");
+                distanceToDrive = driveDis;
+                break;
+            } else if (driveDis < 150){
+                distanceToDrive = driveDis;
+                break;
+            } else {
+                System.out.println("Please give a valid distance.");
+                break;
+            }
+
+        }
+    }
+
     public void getHS() {
         System.out.print("What high school is your nominee currently in? ");
         String hs = input.nextLine();
@@ -46,12 +68,14 @@ public class Nominee {
     }
 
     public void showNominee() {
-        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom));
+        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive));
         for (var nominee : nominees) {
+            System.out.print("\n");
             System.out.println(String.format("Name: %s", nominee.name));
             System.out.println(String.format("Email: %s", nominee.email));
             System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
             System.out.println(String.format("High School: %s", nominee.hsGradFrom));
+            System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
 
         }
     }
