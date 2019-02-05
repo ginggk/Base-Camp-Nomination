@@ -28,11 +28,7 @@ public class Nominator {
         getAttendance();
         getEmail();
         getPhone();
-
-
-
         showNominee();
-
     }
 
     public void welcomeGreeting() {
@@ -79,7 +75,7 @@ public class Nominator {
     public void getPhone() {
         while (true) {
             System.out.print("Nominator's Phone Number: ");
-            Long phoneInput = input.nextLong();
+            String phoneInput = input.nextLine();
 
 
 
@@ -87,7 +83,10 @@ public class Nominator {
                 if (isPhoneValid(phoneInput)) {
                     phone = String.valueOf(phoneInput).replaceAll("(\\d{3})(\\d{3})(\\d{4})", "($1)-$2-$3");
                     break;
-                } else {
+                } else if (phoneInput instanceof String) {
+                    System.out.println("Sorry, invalid phone number");
+                }
+                else {
                     System.out.print("Sorry, invalid phone number");
                 }
             } catch (NumberFormatException nfe) {
@@ -101,13 +100,12 @@ public class Nominator {
 
     }
 
-    public boolean isPhoneValid(long phone) {
+    public boolean isPhoneValid(String phone) {
         String phoneReg = "\\d{10}";
 
 
-        String  result = Long.toString(phone);
         Pattern p = Pattern.compile(phoneReg);
-        return p.matcher(result).matches();
+        return p.matcher(phone).matches();
     }
 
 //    public void questions() {

@@ -12,7 +12,7 @@ public class ExternalProgram {
         Nominee nominee = new Nominee();
         nominee.creatingNominee();
 
-        String file = student.name.toLowerCase().replace(" ", "_") + ".txt";
+        String file = nominee.name.toLowerCase().replace(" ", "_") + ".txt";
 
         if (file.matches(file)) {
             BufferedWriter out = new BufferedWriter(
@@ -38,6 +38,7 @@ public class ExternalProgram {
 
             out.close();
         }
+
 
 
 

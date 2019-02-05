@@ -29,6 +29,7 @@ public class Nominee {
             System.out.print("Nominee's full name: ");
             String nameInput = input.nextLine();
             name = nameInput;
+
         }
 
         public void getEmail() {
