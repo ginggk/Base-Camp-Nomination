@@ -10,11 +10,14 @@ public class Nominee {
     String email;
     Double distanceToDrive;
     ArrayList<NomineeInfo> nominees = new ArrayList<>();
+    String attendance;
 
     public void creatingNominee() {
         isNomineeASenior();
         getEmail();
+        getAttendance();
         findDistance();
+
         showNominee();
 
     }
@@ -68,7 +71,7 @@ public class Nominee {
     }
 
     public void showNominee() {
-        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive));
+        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance));
         for (var nominee : nominees) {
             System.out.print("\n");
             System.out.println(String.format("Name: %s", nominee.name));
@@ -76,6 +79,8 @@ public class Nominee {
             System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
             System.out.println(String.format("High School: %s", nominee.hsGradFrom));
             System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
+            System.out.println(String.format("Attendance: %s", nominee.attendance));
+
 
         }
     }
@@ -113,4 +118,17 @@ public class Nominee {
             }
         }
     }
+
+    public void getAttendance() {
+        System.out.print("What was your nominee's attendance for the current year? ");
+        String nomineeAttendance = input.nextLine();
+
+
+//        System.out.print("What was your nominee's attendance for the current year? ");
+//        String nomineeAttendance = input.nextLine();
+
+        attendance = nomineeAttendance;
+
+    }
+
 }
