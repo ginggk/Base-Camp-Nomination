@@ -1,4 +1,3 @@
-import java.awt.desktop.ScreenSleepEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -12,11 +11,14 @@ public class Nominator {
     Double distanceToDrive;
     String phone;
     ArrayList<NominatorInfo> nominees = new ArrayList<>();
+    ArrayList<NominatorQuestions> questions = new ArrayList<>();
     String attendance;
     String contact;
     String position;
     String nomineeRelationship;
     String nomineeName;
+    int questionNumber;
+    String answer;
 
 
     public void creatingNominee() {
@@ -108,6 +110,19 @@ public class Nominator {
         return p.matcher(result).matches();
     }
 
+//    public void questions() {
+//
+//    }
+//
+//    public void showAnswers() {
+//        questions.add(new NominatorQuestions(questionNumber, answer));
+//        for (var question : questions) {
+//            System.out.print("\n");
+//            System.out.println(String.format("Name: %s", nominee.name));
+//            System.out.println(String.format("Nominator's Email: %s", nominee.email));
+//        }
+//    }
+
     public void showNominee() {
         nominees.add(new NominatorInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship, nomineeName));
         for (var nominee : nominees) {
@@ -121,8 +136,6 @@ public class Nominator {
             System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
             System.out.println(String.format("Nominator's Current Position: %s", nominee.position));
             System.out.println(String.format("Relationship to nominee:  %s", nominee.relationship));
-
-
         }
     }
 

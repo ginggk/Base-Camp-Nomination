@@ -24,4 +24,5 @@ public class NominatorInfo {
         this.relationship = relationship;
         this.nomineeName = nomineeName;
     }
+
 }
