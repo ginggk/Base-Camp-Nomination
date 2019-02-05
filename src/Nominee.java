@@ -10,11 +10,9 @@ public class Nominee {
         String email;
         Double distanceToDrive;
         String phone;
-        ArrayList<NomineeInfo> nominees = new ArrayList<>();
-        String attendance;
+        ArrayList<NomineeInformation> nominees = new ArrayList<>();
         String contact;
         String position;
-        String nomineeRelationship;
 
 
         public void creatingNominee() {
@@ -26,23 +24,6 @@ public class Nominee {
 
         }
 
-        public void welcomeGreeting() {
-            System.out.println("\n****2020 Base Camp Student nomination!****");
-            System.out.print("\nTo get started hit ENTER ");
-            while (true) {
-
-                String goAhead = input.nextLine();
-                if (goAhead.equals("")) {
-                    creatingNominee();
-                    break;
-                }
-                else {
-                    System.out.print("Go ahead and hit enter.");
-                }
-
-            }
-
-        }
 
         public void getName() {
             System.out.print("Nominee's full name: ");
@@ -122,7 +103,7 @@ public class Nominee {
         }
 
         public void getHS() {
-            System.out.print("What high school is you are currently in? ");
+            System.out.print("What high school are you currently in? ");
             String hs = input.nextLine();
             hsGradFrom = hs;
             getName();
@@ -130,15 +111,13 @@ public class Nominee {
         }
 
         public void showNominee() {
-            nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship));
+            nominees.add(new NomineeInformation(name,email,hsGradFrom, distanceToDrive, phone, contact));
             for (var nominee : nominees) {
                 System.out.print("\n");
                 System.out.println(String.format("Student name: %s", nominee.name));
                 System.out.println(String.format("Student email: %s", nominee.email));
-//                System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
                 System.out.println(String.format("High School: %s", nominee.hsGradFrom));
                 System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
-                System.out.println(String.format("Total days missed: %s days", nominee.attendance));
                 System.out.println(String.format("Student Phone Number: %s", nominee.number));
                 System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
 
@@ -156,15 +135,6 @@ public class Nominee {
             return p.matcher(email).matches();
         }
 
-
-        public void getAttendance() {
-            System.out.print("How many days has your nominee been absent? ");
-            String nomineeAttendance = input.nextLine();
-
-
-            attendance = nomineeAttendance;
-
-        }
 
         public void getContact() {
             System.out.print("How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");

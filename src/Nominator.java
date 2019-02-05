@@ -1,3 +1,4 @@
+import java.awt.desktop.ScreenSleepEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -10,20 +11,21 @@ public class Nominator {
     String email;
     Double distanceToDrive;
     String phone;
-    ArrayList<NomineeInfo> nominees = new ArrayList<>();
+    ArrayList<NominatorInfo> nominees = new ArrayList<>();
     String attendance;
     String contact;
     String position;
     String nomineeRelationship;
+    String nomineeName;
 
 
     public void creatingNominee() {
         isNomineeASenior();
+        nomineesName();
         getPosition();
         getAttendance();
         getEmail();
         getPhone();
-//        findDistance();
 
 
 
@@ -106,43 +108,14 @@ public class Nominator {
         return p.matcher(result).matches();
     }
 
-//    public void findDistance() {
-//
-//        while (true) {
-//            System.out.print("Driving distance(miles)? ");
-//            double driveDis = input.nextDouble();
-//            if (driveDis > 150) {
-//                System.out.println("Might want to relocate closer.");
-//                distanceToDrive = driveDis;
-//                break;
-//            } else if (driveDis < 150){
-//                distanceToDrive = driveDis;
-//                break;
-//            } else {
-//                System.out.println("Please give a valid distance.");
-//                break;
-//            }
-//
-//        }
-//    }
-
-//    public void getHS() {
-//        System.out.print("What high school is your nominee currently in? ");
-//        String hs = input.nextLine();
-//        hsGradFrom = hs;
-//        getName();
-//
-//    }
-
     public void showNominee() {
-        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship));
+        nominees.add(new NominatorInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship, nomineeName));
         for (var nominee : nominees) {
             System.out.print("\n");
             System.out.println(String.format("Name: %s", nominee.name));
             System.out.println(String.format("Nominator's Email: %s", nominee.email));
+            System.out.println(String.format("Name of nominee: %s", nominee.nomineeName));
             System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
-//            System.out.println(String.format("High School: %s", nominee.hsGradFrom));
-//            System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
             System.out.println(String.format("Total days missed: %s days", nominee.attendance));
             System.out.println(String.format("Nominator's Phone Number: %s", nominee.number));
             System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
@@ -151,6 +124,13 @@ public class Nominator {
 
 
         }
+    }
+
+    public void nomineesName() {
+        System.out.print("What is your nominee's name? ");
+        String nomName = input.nextLine();
+        nomineeName = nomName;
+
     }
 
     public boolean isEmailValid(String email) {
@@ -223,7 +203,7 @@ public class Nominator {
     }
 
     public void relationshipToNominee() {
-        System.out.print("What is your relationship to " + name + "? ");
+        System.out.print("What is your relationship to your nominee? ");
         String relationship = input.nextLine();
 
         nomineeRelationship = relationship;
