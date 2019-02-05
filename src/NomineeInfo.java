@@ -5,10 +5,10 @@ public class NomineeInfo {
     String hsGradFrom;
     Double distanceToDrive;
     String attendance;
-    Long number;
+    String number;
     String contactMethod;
 
-    public NomineeInfo(String name, String email, String isSenior, String hsGradFrom, Double distanceToDrive, String attendance, Long number, String contactMethod) {
+    public NomineeInfo(String name, String email, String isSenior, String hsGradFrom, Double distanceToDrive, String attendance, String number, String contactMethod) {
         this.name = name;
         this.email = email;
         this.isSenior = isSenior;

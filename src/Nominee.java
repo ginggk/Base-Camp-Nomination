@@ -9,7 +9,7 @@ public class Nominee {
     String name;
     String email;
     Double distanceToDrive;
-    Long phone;
+    String phone;
     ArrayList<NomineeInfo> nominees = new ArrayList<>();
     String attendance;
     String contact;
@@ -23,6 +23,24 @@ public class Nominee {
 
 
         showNominee();
+
+    }
+
+    public void welcomeGreeting() {
+        System.out.println("\n****2020 Base Camp Student nomination!****");
+        System.out.print("\nTo get started hit ENTER ");
+        while (true) {
+
+            String goAhead = input.nextLine();
+            if (goAhead.equals("")) {
+                creatingNominee();
+                break;
+            }
+            else {
+                System.out.print("Go ahead and hit enter.");
+            }
+
+        }
 
     }
 
@@ -56,7 +74,7 @@ public class Nominee {
 
             try {
                 if (isPhoneValid(phoneInput)) {
-                    phone = phoneInput;
+                    phone = String.valueOf(phoneInput).replaceAll("(\\d{3})(\\d{3})(\\d{4})", "($1)-$2-$3");
                     break;
                 } else {
                     System.out.print("Sorry, invalid phone number");
