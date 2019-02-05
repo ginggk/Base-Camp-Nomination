@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class InternalProgram {
 
+
     public static void main(String[] args) throws IOException {
 
         Nominee nominee = new Nominee();
@@ -11,6 +12,7 @@ public class InternalProgram {
         Scanner input = new Scanner(System.in);
 
         System.out.println("What nominee would you like to see? ");
+        System.out.println();
 
 
 
