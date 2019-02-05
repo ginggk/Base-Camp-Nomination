@@ -7,8 +7,10 @@ public class NomineeInfo {
     String attendance;
     String number;
     String contactMethod;
+    String position;
+    String relationship;
 
-    public NomineeInfo(String name, String email, String isSenior, String hsGradFrom, Double distanceToDrive, String attendance, String number, String contactMethod) {
+    public NomineeInfo(String name, String email, String isSenior, String hsGradFrom, Double distanceToDrive, String attendance, String number, String contactMethod, String position, String relationship) {
         this.name = name;
         this.email = email;
         this.isSenior = isSenior;
@@ -17,5 +19,7 @@ public class NomineeInfo {
         this.attendance = attendance;
         this.number = number;
         this.contactMethod = contactMethod;
+        this.position = position;
+        this.relationship = relationship;
     }
 }
