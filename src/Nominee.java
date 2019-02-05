@@ -9,14 +9,17 @@ public class Nominee {
     String name;
     String email;
     Double distanceToDrive;
+    Long phone;
     ArrayList<NomineeInfo> nominees = new ArrayList<>();
     String attendance;
 
     public void creatingNominee() {
         isNomineeASenior();
-        getEmail();
         getAttendance();
+        getEmail();
+        getPhone();
         findDistance();
+
 
         showNominee();
 
@@ -43,7 +46,40 @@ public class Nominee {
 
     }
 
+    public void getPhone() {
+        while (true) {
+            System.out.print("Nominator's Phone Number: ");
+            Long phoneInput = input.nextLong();
+
+
+
+            try {
+                if (isPhoneValid(phoneInput)) {
+                    phone = phoneInput;
+                    break;
+                } else {
+                    System.out.print("Sorry, invalid phone number");
+                }
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+
+            }
+
+
+        }
+    }
+
+    public boolean isPhoneValid(long phone) {
+        String phoneReg = "\\d{10}";
+
+
+        String  result = Long.toString(phone);
+        Pattern p = Pattern.compile(phoneReg);
+        return p.matcher(result).matches();
+    }
+
     public void findDistance() {
+
         while (true) {
             System.out.print("Driving distance(miles)? ");
             double driveDis = input.nextDouble();
@@ -71,7 +107,7 @@ public class Nominee {
     }
 
     public void showNominee() {
-        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance));
+        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone));
         for (var nominee : nominees) {
             System.out.print("\n");
             System.out.println(String.format("Name: %s", nominee.name));
@@ -79,7 +115,8 @@ public class Nominee {
             System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
             System.out.println(String.format("High School: %s", nominee.hsGradFrom));
             System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
-            System.out.println(String.format("Attendance: %s", nominee.attendance));
+            System.out.println(String.format("Attendance: %s days", nominee.attendance));
+            System.out.println(String.format("Phone Number: %s", nominee.number));
 
 
         }
