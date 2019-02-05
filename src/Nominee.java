@@ -12,6 +12,7 @@ public class Nominee {
     Long phone;
     ArrayList<NomineeInfo> nominees = new ArrayList<>();
     String attendance;
+    String contact;
 
     public void creatingNominee() {
         isNomineeASenior();
@@ -67,6 +68,8 @@ public class Nominee {
 
 
         }
+        getContact();
+
     }
 
     public boolean isPhoneValid(long phone) {
@@ -107,7 +110,7 @@ public class Nominee {
     }
 
     public void showNominee() {
-        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone));
+        nominees.add(new NomineeInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact));
         for (var nominee : nominees) {
             System.out.print("\n");
             System.out.println(String.format("Name: %s", nominee.name));
@@ -117,6 +120,7 @@ public class Nominee {
             System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
             System.out.println(String.format("Attendance: %s days", nominee.attendance));
             System.out.println(String.format("Phone Number: %s", nominee.number));
+            System.out.println(String.format("Perfered method of contact: %s", nominee.contactMethod));
 
 
         }
@@ -157,14 +161,26 @@ public class Nominee {
     }
 
     public void getAttendance() {
-        System.out.print("What was your nominee's attendance for the current year? ");
+        System.out.print("How many days has your nominee been absent? ");
         String nomineeAttendance = input.nextLine();
 
 
-//        System.out.print("What was your nominee's attendance for the current year? ");
-//        String nomineeAttendance = input.nextLine();
-
         attendance = nomineeAttendance;
+
+    }
+
+    public void getContact() {
+        System.out.print("How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");
+        Integer contactMethod = input.nextInt();
+
+        if (contactMethod.equals(1)) {
+            contact = "Call";
+        } else if (contactMethod.equals(2)) {
+            contact = "Text";
+        } else {
+            contact = "Email";
+        }
+
 
     }
 
