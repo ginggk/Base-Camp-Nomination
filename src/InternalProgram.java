@@ -19,7 +19,7 @@ public class InternalProgram {
 
 
         String stName;
-        while ((stName = nameNom.readLine()) != null) System.out.println(stName + "\n");
+        while ((stName = nameNom.readLine()) != null) System.out.println(stName);
 
         System.out.print("What nominee would you like to see? ");
 
@@ -44,7 +44,7 @@ public class InternalProgram {
                 while ((st = br.readLine()) != null) System.out.println(st);
                 break;
             } catch (FileNotFoundException ex) {
-                System.out.println("There has been a problem.");
+                System.out.println("The person you are trying to see is not currently nominated, please try again later.");
             }
 
         }

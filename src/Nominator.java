@@ -155,15 +155,17 @@ public class Nominator {
     }
 
     public void getContact() {
-        System.out.print("(9.) How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");
-        Integer contactMethod = input.nextInt();
+        System.out.print("(9.) How would you prefer to be contacted? ([C]all, [T]ext or [E]mail) ");
+        String contactMethod = input.next();
 
-        if (contactMethod.equals(1)) {
+        if (contactMethod.toLowerCase().equals("c")) {
             contact = "Call";
-        } else if (contactMethod.equals(2)) {
+        } else if (contactMethod.toLowerCase().equals("t")) {
             contact = "Text";
-        } else {
+        } else if (contactMethod.toLowerCase().equals("e")){
             contact = "Email";
+        } else {
+            System.out.println("Please Say [C], [T], or [E].");
         }
 
 
