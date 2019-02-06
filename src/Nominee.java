@@ -125,18 +125,26 @@ public class Nominee {
 
 
     public void getContact() {
-        System.out.print("(5.) How would you prefer to be contacted? ([C]all, [T]ext or [E]mail) ");
-        String contactMethod = input.next();
 
-        if (contactMethod.toLowerCase().equals("c")) {
-            contact = "Call";
-        } else if (contactMethod.toLowerCase().equals("t")) {
-            contact = "Text";
-        } else if (contactMethod.toLowerCase().equals("e")) {
-            contact = "Email";
-        } else {
-            System.out.println("Please Say [C], [T], or [E].");
+        while (true) {
+            System.out.print("(5.) How would you prefer to be contacted? ([C]all, [T]ext or [E]mail) ");
+            String contactMethod = input.next();
+
+            if (contactMethod.toLowerCase().equals("c")) {
+                contact = "Call";
+                break;
+            } else if (contactMethod.toLowerCase().equals("t")) {
+                contact = "Text";
+                break;
+            } else if (contactMethod.toLowerCase().equals("e")) {
+                contact = "Email";
+                break;
+            } else {
+                System.out.println("Please Say [C], [T], or [E].");
+            }
         }
+
+
     }
 
         public void getPosition() {
