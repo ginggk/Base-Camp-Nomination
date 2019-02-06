@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Nominee {
@@ -7,7 +8,7 @@ public class Nominee {
         String hsGradFrom;
         String name;
         String email;
-        Double distanceToDrive;
+        String distanceToDrive;
         String phone;
         ArrayList<NomineeInformation> nominees = new ArrayList<>();
         String contact;
@@ -19,7 +20,6 @@ public class Nominee {
             getEmail();
             getPhone();
             findDistance();
-//            showNominee();
 
         }
 
@@ -84,22 +84,23 @@ public class Nominee {
             return p.matcher(result).matches();
         }
 
+
+
         public void findDistance() {
+            System.out.print("(6.) Driving distance(miles)? ");
 
             while (true) {
-                System.out.print("(6.) Driving distance(miles)? ");
-                double driveDis = input.nextDouble();
-                if (driveDis > 150) {
-                    System.out.println("Might want to relocate closer.");
-                    distanceToDrive = driveDis;
-                    break;
-                } else if (driveDis < 150){
+                String driveDis = input.next();
+                if (driveDis.matches("\\d+")) {
                     distanceToDrive = driveDis;
                     break;
                 } else {
-                    System.out.println("Please give a valid distance.");
-                    break;
+                    System.out.println("That is not a valid distance.");
+
                 }
+
+
+
 
             }
         }

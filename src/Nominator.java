@@ -31,7 +31,6 @@ public class Nominator {
         getAttendance();
         getEmail();
         getPhone();
-//        showNominee();
     }
 
     public void welcomeGreeting() {
@@ -156,17 +155,24 @@ public class Nominator {
 
     public void getContact() {
         System.out.print("(9.) How would you prefer to be contacted? ([C]all, [T]ext or [E]mail) ");
-        String contactMethod = input.next();
+        while (true) {
 
-        if (contactMethod.toLowerCase().equals("c")) {
-            contact = "Call";
-        } else if (contactMethod.toLowerCase().equals("t")) {
-            contact = "Text";
-        } else if (contactMethod.toLowerCase().equals("e")){
-            contact = "Email";
-        } else {
-            System.out.println("Please Say [C], [T], or [E].");
+            String contactMethod = input.next();
+
+            if (contactMethod.toLowerCase().equals("c")) {
+                contact = "Call";
+                break;
+            } else if (contactMethod.toLowerCase().equals("t")) {
+                contact = "Text";
+                break;
+            } else if (contactMethod.toLowerCase().equals("e")){
+                contact = "Email";
+                break;
+            } else {
+                System.out.println("Please Say [C], [T], or [E].");
+            }
         }
+
 
 
         System.out.println("\nThese are opinion questions about the Nominee: ");
