@@ -9,7 +9,8 @@ public class ExternalProgram {
     public static void main(String[] args) throws IOException {
         Nominator student = new Nominator();
         student.welcomeGreeting();
-        System.out.println("\n****Nominee info****\n");
+        System.out.println("\n****Nominee info****");
+        System.out.println("\t - There are (6) questions in total to get to know you!\n");
         Nominee nominee = new Nominee();
         nominee.creatingNominee();
         DateFormat df  = new SimpleDateFormat("EEE, MMM d yyyy h:mm aa");

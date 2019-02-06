@@ -25,24 +25,26 @@ public class Nominator {
 
 
     public void creatingNominee() {
-//        isNomineeASenior();
-//        nomineesName();
-//        getPosition();
-//        getAttendance();
-//        getEmail();
+        isNomineeASenior();
+        nomineesName();
+        getPosition();
+        getAttendance();
+        getEmail();
         getPhone();
 //        showNominee();
     }
 
     public void welcomeGreeting() {
         System.out.println("\n****2020 Base Camp Student nomination!****\n");
-        System.out.println("Total of 4 questions to answer.");
+        System.out.println("\n--There are (12) questions in total--");
+        System.out.println("\t-(8) are questions to gather information.");
+        System.out.println("\t-(4) are personal opinion questions about your nominee.\n");
         creatingNominee();
 
     }
 
     public void getName() {
-        System.out.print("Nominator's full name: ");
+        System.out.print("(2.) Nominator's full name: ");
         String nameInput = input.nextLine();
         name = nameInput;
     }
@@ -50,7 +52,7 @@ public class Nominator {
     public void getEmail() {
         while (true) {
             System.out.println("\nExample email: santhony@basecampcodingacademy.org\n");
-            System.out.print("Nominator's email: ");
+            System.out.print("(7.) Nominator's email: ");
             String emailInput = input.nextLine();
             if (isEmailValid(emailInput)) {
                 email = emailInput;
@@ -67,7 +69,7 @@ public class Nominator {
 
     public void getPhone() {
         while (true) {
-            System.out.print("Nominator's Phone Number: ");
+            System.out.print("(8.) Nominator's Phone Number: ");
             String phoneInput = input.nextLine();
 
 
@@ -101,37 +103,9 @@ public class Nominator {
         return p.matcher(phone).matches();
     }
 
-//    public void questions() {
-//
-//    }
-//
-//    public void showAnswers() {
-//        questions.add(new NominatorQuestions(questionNumber, answer));
-//        for (var question : questions) {
-//            System.out.print("\n");
-//            System.out.println(String.format("Name: %s", nominee.name));
-//            System.out.println(String.format("Nominator's Email: %s", nominee.email));
-//        }
-//    }
-
-//    public void showNominee() {
-//        nominees.add(new NominatorInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship, nomineeName));
-//        for (var nominee : nominees) {
-//            System.out.print("\n");
-//            System.out.println(String.format("Name: %s", nominee.name));
-//            System.out.println(String.format("Nominator's Email: %s", nominee.email));
-//            System.out.println(String.format("Name of nominee: %s", nominee.nomineeName));
-//            System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
-//            System.out.println(String.format("Total days missed: %s days", nominee.attendance));
-//            System.out.println(String.format("Nominator's Phone Number: %s", nominee.number));
-//            System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
-//            System.out.println(String.format("Nominator's Current Position: %s", nominee.position));
-//            System.out.println(String.format("Relationship to nominee:  %s", nominee.relationship));
-//        }
-//    }
 
     public void nomineesName() {
-        System.out.print("What is your nominee's name? ");
+        System.out.print("(3.) What is your nominee's name? ");
         String nomName = input.nextLine();
         nomineeName = nomName;
 
@@ -148,10 +122,10 @@ public class Nominator {
     }
 
     public void isNomineeASenior() {
-        System.out.print("Is your nominee currently a senior? ");
-        String senior = input.nextLine();
+        System.out.print("(1.) Is your nominee currently a senior? [Y]es or [N]o ");
         while (true) {
-            if (senior.toLowerCase().equals("yes")) {
+            String senior = input.nextLine();
+            if (senior.toLowerCase().equals("y")) {
 //                getHS();
                 isSenior = "yes";
 
@@ -159,21 +133,19 @@ public class Nominator {
 
 
 
-            } else {
-                System.out.println("Sorry, you are currently not eligible.");
+            } else if (senior.toLowerCase().equals("n")) {
+                System.out.println("I'm sorry! They have to be a current senior!");
                 isSenior = "no";
                 System.exit(0);
-
-
-
-
+            } else {
+                System.out.println("Please Say [Y] or [N]!");
             }
         }
         getName();
     }
 
     public void getAttendance() {
-        System.out.print("How many days has your nominee been absent? ");
+        System.out.print("(5.) How many days has your nominee been absent from school? ");
         String nomineeAttendance = input.nextLine();
 
 
@@ -183,7 +155,7 @@ public class Nominator {
     }
 
     public void getContact() {
-        System.out.print("How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");
+        System.out.print("(9.) How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");
         Integer contactMethod = input.nextInt();
 
         if (contactMethod.equals(1)) {
@@ -193,13 +165,15 @@ public class Nominator {
         } else {
             contact = "Email";
         }
+
+
+        System.out.println("\nThese are opinion questions about the Nominee: ");
+        System.out.println("_______________________________________________");
         opinionQuestions();
-
-
     }
 
     public void getPosition() {
-        System.out.print("Your current position: ");
+        System.out.print("(4.) Your current position: ");
         String positionChoice = input.nextLine();
 
         position = positionChoice;
@@ -215,7 +189,7 @@ public class Nominator {
     }
 
     public void relationshipToNominee() {
-        System.out.println("What is your relationship to your nominee? ");
+        System.out.print("(6.) What is your relationship to your nominee? ");
         String relationship = input.nextLine();
 
         nomineeRelationship = relationship;
@@ -223,7 +197,7 @@ public class Nominator {
 
     public void question2() {
         Scanner inputQuestion2 = new Scanner(System.in);
-        System.out.println("\nPerseverance: Is there any evidence of the applicant being engaged" +
+        System.out.println("\n(2.) Perseverance: Is there any evidence of the applicant being engaged" +
                 "\n in something they are passionate about? ");
         String opinionQ2 = inputQuestion2.nextLine();
         answerQ2 = opinionQ2;
@@ -231,14 +205,14 @@ public class Nominator {
     }
     public void question3() {
         Scanner inputQuestion3 = new Scanner(System.in);
-        System.out.println("\nDedication: Do you think the applicant would be able to reliably attend\n the program five days a week in Water Valley? ");
+        System.out.println("\n(3.) Dedication: Do you think the applicant would be able to reliably attend\n the program five days a week in Water Valley? ");
         String opinionQ3 = inputQuestion3.nextLine();
         answerQ3 = opinionQ3;
     }
 
     public void question4() {
         Scanner inputQuestion4 = new Scanner(System.in);
-        System.out.println("\nWork Ethic / Heart: Why does this student deserve a position at Base Camp? ");
+        System.out.println("\n(4.) Work Ethic / Heart: Why does this student deserve a position at Base Camp? ");
         String opinionQ4 = inputQuestion4.nextLine();
         answerQ4 = opinionQ4;
     }
@@ -246,7 +220,7 @@ public class Nominator {
     public void question1() {
         Scanner inputQuestion1 = new Scanner(System.in);
 
-        System.out.println("\nAptitude: Do you have any experiences when this student has demonstrated a strong ability\n to think logically and/or strategically? ");
+        System.out.println("\n(1.) Aptitude: Do you have any experiences when this student has demonstrated a strong ability\n to think logically and/or strategically? ");
         String opinionQ1 = inputQuestion1.nextLine();
         answerQ1 = opinionQ1;
     }

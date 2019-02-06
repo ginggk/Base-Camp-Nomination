@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 
 public class Nominee {
         Scanner input = new Scanner(System.in);
-        String isSenior;
         String hsGradFrom;
         String name;
         String email;
@@ -26,7 +25,7 @@ public class Nominee {
 
 
         public void getName() {
-            System.out.print("Nominee's full name: ");
+            System.out.print("(2.) Nominee's full name: ");
             String nameInput = input.nextLine();
             name = nameInput;
 
@@ -34,8 +33,8 @@ public class Nominee {
 
         public void getEmail() {
             while (true) {
-                System.out.println("Example email: dannyp123@gmail.com");
-                System.out.print("Nominee's email: ");
+                System.out.println("\nExample email: dannyp123@gmail.com\n");
+                System.out.print("(3.) Nominee's email: ");
 
                 String emailInput = input.nextLine();
                 if (isEmailValid(emailInput)) {
@@ -53,7 +52,7 @@ public class Nominee {
 
         public void getPhone() {
             while (true) {
-                System.out.print("Nominee's Phone Number: ");
+                System.out.print("(4.) Nominee's Phone Number: ");
                 Long phoneInput = input.nextLong();
 
 
@@ -88,7 +87,7 @@ public class Nominee {
         public void findDistance() {
 
             while (true) {
-                System.out.print("Driving distance(miles)? ");
+                System.out.print("(6.) Driving distance(miles)? ");
                 double driveDis = input.nextDouble();
                 if (driveDis > 150) {
                     System.out.println("Might want to relocate closer.");
@@ -106,27 +105,13 @@ public class Nominee {
         }
 
         public void getHS() {
-            System.out.print("What high school are you currently in? ");
+            System.out.print("(1.) What high school are you currently in? ");
             String hs = input.nextLine();
             hsGradFrom = hs;
             getName();
 
         }
 
-//        public void showNominee() {
-//            nominees.add(new NomineeInformation(name,email,hsGradFrom, distanceToDrive, phone, contact));
-//            for (var nominee : nominees) {
-//                System.out.print("\n");
-//                System.out.println(String.format("Student name: %s", nominee.name));
-//                System.out.println(String.format("Student email: %s", nominee.email));
-//                System.out.println(String.format("High School: %s", nominee.hsGradFrom));
-//                System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
-//                System.out.println(String.format("Student Phone Number: %s", nominee.number));
-//                System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
-//
-//
-//            }
-//        }
 
         public boolean isEmailValid(String email) {
             String emailReg = "^[a-zA-Z0-9_+&*-]+(?:\\."+
@@ -140,7 +125,7 @@ public class Nominee {
 
 
         public void getContact() {
-            System.out.print("How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");
+            System.out.print("(5.) How would you prefer to be contacted? ([1]Call, [2]Text or [3]Email) ");
             Integer contactMethod = input.nextInt();
 
             if (contactMethod.equals(1)) {
