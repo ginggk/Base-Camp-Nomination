@@ -17,35 +17,27 @@ public class Nominator {
     String position;
     String nomineeRelationship;
     String nomineeName;
-    int questionNumber;
-    String answer;
+    String answerQ1;
+    String answerQ2;
+    String answerQ3;
+    String answerQ4;
+
 
 
     public void creatingNominee() {
-        isNomineeASenior();
-        nomineesName();
-        getPosition();
-        getAttendance();
-        getEmail();
+//        isNomineeASenior();
+//        nomineesName();
+//        getPosition();
+//        getAttendance();
+//        getEmail();
         getPhone();
 //        showNominee();
     }
 
     public void welcomeGreeting() {
-        System.out.println("\n****2020 Base Camp Student nomination!****");
-        System.out.print("\nTo get started hit ENTER ");
-        while (true) {
-
-            String goAhead = input.nextLine();
-            if (goAhead.equals("")) {
-                creatingNominee();
-                break;
-            }
-            else {
-                System.out.print("Go ahead and hit enter.");
-            }
-
-        }
+        System.out.println("\n****2020 Base Camp Student nomination!****\n");
+        System.out.println("Total of 4 questions to answer.");
+        creatingNominee();
 
     }
 
@@ -57,6 +49,7 @@ public class Nominator {
 
     public void getEmail() {
         while (true) {
+            System.out.println("\nExample email: santhony@basecampcodingacademy.org\n");
             System.out.print("Nominator's email: ");
             String emailInput = input.nextLine();
             if (isEmailValid(emailInput)) {
@@ -200,6 +193,7 @@ public class Nominator {
         } else {
             contact = "Email";
         }
+        opinionQuestions();
 
 
     }
@@ -213,12 +207,50 @@ public class Nominator {
 
     }
 
+    public void opinionQuestions() {
+        question1();
+        question2();
+        question3();
+        question4();
+    }
+
     public void relationshipToNominee() {
-        System.out.print("What is your relationship to your nominee? ");
+        System.out.println("What is your relationship to your nominee? ");
         String relationship = input.nextLine();
 
         nomineeRelationship = relationship;
     }
+
+    public void question2() {
+        Scanner inputQuestion2 = new Scanner(System.in);
+        System.out.println("\nPerseverance: Is there any evidence of the applicant being engaged" +
+                "\n in something they are passionate about? ");
+        String opinionQ2 = inputQuestion2.nextLine();
+        answerQ2 = opinionQ2;
+
+    }
+    public void question3() {
+        Scanner inputQuestion3 = new Scanner(System.in);
+        System.out.println("\nDedication: Do you think the applicant would be able to reliably attend\n the program five days a week in Water Valley? ");
+        String opinionQ3 = inputQuestion3.nextLine();
+        answerQ3 = opinionQ3;
+    }
+
+    public void question4() {
+        Scanner inputQuestion4 = new Scanner(System.in);
+        System.out.println("\nWork Ethic / Heart: Why does this student deserve a position at Base Camp? ");
+        String opinionQ4 = inputQuestion4.nextLine();
+        answerQ4 = opinionQ4;
+    }
+
+    public void question1() {
+        Scanner inputQuestion1 = new Scanner(System.in);
+
+        System.out.println("\nAptitude: Do you have any experiences when this student has demonstrated a strong ability\n to think logically and/or strategically? ");
+        String opinionQ1 = inputQuestion1.nextLine();
+        answerQ1 = opinionQ1;
+    }
+
 
 
 }

@@ -34,7 +34,9 @@ public class Nominee {
 
         public void getEmail() {
             while (true) {
+                System.out.println("Example email: dannyp123@gmail.com");
                 System.out.print("Nominee's email: ");
+
                 String emailInput = input.nextLine();
                 if (isEmailValid(emailInput)) {
                     email = emailInput;
