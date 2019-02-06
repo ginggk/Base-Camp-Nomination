@@ -1,7 +1,8 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ExternalProgram {
 
@@ -11,6 +12,17 @@ public class ExternalProgram {
         System.out.println("\n****Nominee info****\n");
         Nominee nominee = new Nominee();
         nominee.creatingNominee();
+        DateFormat df  = new SimpleDateFormat("EEE, MMM d yyyy h:mm aa");
+        Date today = Calendar.getInstance().getTime();
+        String reportDate = df.format(today);
+
+        File textFile = new File("nomineeNames.txt");
+
+        BufferedWriter nomineeName = new BufferedWriter(
+                new FileWriter(textFile, true));
+        nomineeName.write("Name of nominee: " + nominee.name + "\n");
+        nomineeName.write("Date of nomination: " + reportDate);
+        nomineeName.close();
 
         String file = nominee.name.toLowerCase().replace(" ", "_") + ".txt";
 
@@ -18,6 +30,7 @@ public class ExternalProgram {
             BufferedWriter out = new BufferedWriter(
                     new FileWriter(file));
             out.write("This is the Nominator's information\n");
+            out.write("-------------------------------------------------\n");
             out.write(String.format("Name: %s", student.name + "\n"));
             out.write(String.format("Nominator's Email: %s", student.email + "\n"));
             out.write(String.format("Name of nominee: %s", student.nomineeName + "\n"));
@@ -29,6 +42,7 @@ public class ExternalProgram {
             out.write(String.format("Relationship to nominee:  %s", student.nomineeRelationship + "\n" + "\n"));
 
             out.write("This is the Nominee's information\n");
+            out.write("-------------------------------------------------\n");
             out.write(String.format("Student name: %s", nominee.name + "\n"));
             out.write((String.format("Student email: %s", nominee.email + "\n")));
             out.write((String.format("High School: %s", nominee.hsGradFrom + "\n")));

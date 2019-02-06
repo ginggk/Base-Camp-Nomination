@@ -9,10 +9,22 @@ public class InternalProgram {
 
 //        Nominee nominee = new Nominee();
 
-        Scanner input = new Scanner(System.in);
 
-        System.out.println("What nominee would you like to see? ");
-        System.out.println();
+
+
+
+        File fileNomName = new File("nomineeNames.txt");
+
+        BufferedReader nameNom = new BufferedReader(new FileReader(fileNomName));
+
+
+        String stName;
+        while ((stName = nameNom.readLine()) != null) System.out.println(stName + "\n");
+
+        System.out.print("What nominee would you like to see? ");
+
+
+        Scanner input = new Scanner(System.in);
 
 
 

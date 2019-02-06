@@ -20,7 +20,7 @@ public class Nominee {
             getEmail();
             getPhone();
             findDistance();
-            showNominee();
+//            showNominee();
 
         }
 
@@ -111,20 +111,20 @@ public class Nominee {
 
         }
 
-        public void showNominee() {
-            nominees.add(new NomineeInformation(name,email,hsGradFrom, distanceToDrive, phone, contact));
-            for (var nominee : nominees) {
-                System.out.print("\n");
-                System.out.println(String.format("Student name: %s", nominee.name));
-                System.out.println(String.format("Student email: %s", nominee.email));
-                System.out.println(String.format("High School: %s", nominee.hsGradFrom));
-                System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
-                System.out.println(String.format("Student Phone Number: %s", nominee.number));
-                System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
-
-
-            }
-        }
+//        public void showNominee() {
+//            nominees.add(new NomineeInformation(name,email,hsGradFrom, distanceToDrive, phone, contact));
+//            for (var nominee : nominees) {
+//                System.out.print("\n");
+//                System.out.println(String.format("Student name: %s", nominee.name));
+//                System.out.println(String.format("Student email: %s", nominee.email));
+//                System.out.println(String.format("High School: %s", nominee.hsGradFrom));
+//                System.out.println(String.format("Distance to Drive: %s miles", nominee.distanceToDrive));
+//                System.out.println(String.format("Student Phone Number: %s", nominee.number));
+//                System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
+//
+//
+//            }
+//        }
 
         public boolean isEmailValid(String email) {
             String emailReg = "^[a-zA-Z0-9_+&*-]+(?:\\."+

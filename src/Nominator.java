@@ -28,7 +28,7 @@ public class Nominator {
         getAttendance();
         getEmail();
         getPhone();
-        showNominee();
+//        showNominee();
     }
 
     public void welcomeGreeting() {
@@ -121,21 +121,21 @@ public class Nominator {
 //        }
 //    }
 
-    public void showNominee() {
-        nominees.add(new NominatorInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship, nomineeName));
-        for (var nominee : nominees) {
-            System.out.print("\n");
-            System.out.println(String.format("Name: %s", nominee.name));
-            System.out.println(String.format("Nominator's Email: %s", nominee.email));
-            System.out.println(String.format("Name of nominee: %s", nominee.nomineeName));
-            System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
-            System.out.println(String.format("Total days missed: %s days", nominee.attendance));
-            System.out.println(String.format("Nominator's Phone Number: %s", nominee.number));
-            System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
-            System.out.println(String.format("Nominator's Current Position: %s", nominee.position));
-            System.out.println(String.format("Relationship to nominee:  %s", nominee.relationship));
-        }
-    }
+//    public void showNominee() {
+//        nominees.add(new NominatorInfo(name,email,isSenior, hsGradFrom, distanceToDrive, attendance, phone, contact, position, nomineeRelationship, nomineeName));
+//        for (var nominee : nominees) {
+//            System.out.print("\n");
+//            System.out.println(String.format("Name: %s", nominee.name));
+//            System.out.println(String.format("Nominator's Email: %s", nominee.email));
+//            System.out.println(String.format("Name of nominee: %s", nominee.nomineeName));
+//            System.out.println(String.format("Senior in Hs: %s", nominee.isSenior));
+//            System.out.println(String.format("Total days missed: %s days", nominee.attendance));
+//            System.out.println(String.format("Nominator's Phone Number: %s", nominee.number));
+//            System.out.println(String.format("Preferred method of contact: %s", nominee.contactMethod));
+//            System.out.println(String.format("Nominator's Current Position: %s", nominee.position));
+//            System.out.println(String.format("Relationship to nominee:  %s", nominee.relationship));
+//        }
+//    }
 
     public void nomineesName() {
         System.out.print("What is your nominee's name? ");
@@ -158,7 +158,7 @@ public class Nominator {
         System.out.print("Is your nominee currently a senior? ");
         String senior = input.nextLine();
         while (true) {
-            if (senior.equals("yes")) {
+            if (senior.toLowerCase().equals("yes")) {
 //                getHS();
                 isSenior = "yes";
 
