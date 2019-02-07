@@ -10,7 +10,6 @@ public class Nominee {
         String email;
         String distanceToDrive;
         String phone;
-        ArrayList<NomineeInformation> nominees = new ArrayList<>();
         String contact;
         String position;
 
