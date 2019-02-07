@@ -25,7 +25,7 @@ public class Nominee {
 
 
     public boolean isValidStrings(String s) {
-        String n = "[a-zA-Z]+$";
+        String n = "[a-zA-Z ']+";
         Pattern pattern = Pattern.compile(n);
         return pattern.matcher(s).matches();
 
@@ -124,6 +124,7 @@ public class Nominee {
 
 
             }
+            exitMessage();
         }
 
         public void getHS() {
@@ -196,6 +197,12 @@ public class Nominee {
 
 
 
+        }
+
+        public void exitMessage() {
+            System.out.println("--------------------------------------");
+            System.out.println("Thank you so much for contributing to Base Camp Coding Academy(BCCA)!");
+            System.out.println("----------------------------------------");
         }
 
 

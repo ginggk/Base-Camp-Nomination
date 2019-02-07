@@ -40,7 +40,7 @@ public class Nominator {
     }
 
     public boolean isValidStrings(String s) {
-        String n = "[a-zA-Z]+$";
+        String n = "[a-zA-Z ']+";
         Pattern pattern = Pattern.compile(n);
         return pattern.matcher(s).matches();
 
