@@ -59,7 +59,7 @@ public class InternalProgram {
                 while (true) {
                     String interview = input.next();
                     if (interview.equals("1") && interview.matches("\\d+")) {
-                        System.out.println("-----------------------------------------------------------");
+                        System.out.println("\n-----------------------------------------------------------\n");
                         System.out.println("Great! A default email will be sent to " + name + "'s " + email.replace("Student ", ""));
 
                         System.exit(0);
