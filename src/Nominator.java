@@ -40,7 +40,7 @@ public class Nominator {
     }
 
     public boolean isValidStrings(String s) {
-        String n = "[a-zA-Z ']+";
+        String n = "[a-zA-Z ',.!?]+";
         Pattern pattern = Pattern.compile(n);
         return pattern.matcher(s).matches();
 
@@ -214,6 +214,7 @@ public class Nominator {
 
 
         System.out.println("\nThese are opinion questions about the Nominee: ");
+        System.out.println("Make sure not to use any special characters(; : % $ etc.)\n");
         System.out.println("_______________________________________________");
         opinionQuestions();
     }
@@ -272,7 +273,7 @@ public class Nominator {
                 break;
             }
             else {
-                System.out.println("Go ahead and answer the question!");
+                System.out.println("No special characters!");
             }
         }
 
@@ -290,7 +291,7 @@ public class Nominator {
                 break;
             }
             else {
-                System.out.println("Go ahead and answer the question!");
+                System.out.println("No special characters!");
             }
         }
 
@@ -306,7 +307,7 @@ public class Nominator {
                 break;
             }
             else {
-                System.out.println("Go ahead and answer the question!");
+                System.out.println("No special characters!");
             }
         }
 
@@ -323,7 +324,7 @@ public class Nominator {
                 break;
             }
             else {
-                System.out.println("Go ahead and answer the question!");
+                System.out.println("No special characters!");
             }
         }
 
