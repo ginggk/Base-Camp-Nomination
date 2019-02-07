@@ -1,11 +1,10 @@
-<h1><b> Code Overview: </b> </h1> 
-<a href="https://github.com/ginggk/Base-Camp-Nomination/blob/master/docs/code-overview.md"></a>
+# Available Docs
 
-<h1><b> Instructions: </b></h1>
-<a href="https://github.com/ginggk/Base-Camp-Nomination/blob/master/docs/instructions.md"> </a>
-        
+[Code Overview](/docs/code-overview.md)
 
- 
+
+
+[Instructions](/docs/instructions.md)
 
 
 
