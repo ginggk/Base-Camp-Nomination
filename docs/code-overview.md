@@ -1,4 +1,4 @@
-# # Code Overview
+# Code Overview
 
 ## 
 
@@ -12,11 +12,11 @@ We used Java to make the Base Camp Nomination process with an internal and a ext
 
 **1. Internal.java** has a welcome screen and shows the current names that have been nominated.
 
-   \- You can choose a name and it will show all of the application questions and their answer. 
+- You can choose a name and it will show all of the application questions and their answer. 
 
 **2. External.java** has a welcome screen to welcome the nominator and shows how many questions there are.
 
- 	- It also takes the information and writes it to a file called  "nomineenames.txt" and also writes their answers and the questions in a text file with their name as the file name.
+- It also takes the information and writes it to a file called  "nomineenames.txt" and also writes their answers and the questions in a text file with their name as the file name.
 
 **Nominee.java** has everything about the student application.  It runs after the nominator's questions and has a divider in between so the user can tell it is the nominee's part of the application. It  shows the student how many questions there are as well.
 
