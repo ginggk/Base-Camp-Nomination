@@ -5,12 +5,17 @@ import java.util.Scanner;
 public class InternalProgram {
 
 
+    public static void welcome() {
+        System.out.println("\n---Welcome to the Internal Side of Base Camp's nomination process---");
+    }
+
+
     public static void main(String[] args) throws IOException {
 
 //        Nominee nominee = new Nominee();
 
 
-
+        welcome();
 
 
         File fileNomName = new File("nomineeNames.txt");
@@ -19,7 +24,14 @@ public class InternalProgram {
 
 
         String stName;
-        while ((stName = nameNom.readLine()) != null) System.out.println(stName);
+        while ((stName = nameNom.readLine()) != null) {
+            System.out.println(stName);
+
+        }
+
+
+
+//        System.out.println("----------------------------------------------------");
 
         System.out.print("What nominee would you like to see? ");
 
@@ -41,8 +53,12 @@ public class InternalProgram {
 
 
                 String st;
-                while ((st = br.readLine()) != null) System.out.println(st);
-                break;
+                while ((st = br.readLine()) != null) {
+
+                    System.out.println(st);
+
+                    break;
+                }
             } catch (FileNotFoundException ex) {
                 System.out.println("The person you are trying to see is not currently nominated, please try again later.");
             }
