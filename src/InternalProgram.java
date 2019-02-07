@@ -1,5 +1,8 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InternalProgram {
@@ -31,7 +34,6 @@ public class InternalProgram {
 
 
 
-//        System.out.println("----------------------------------------------------");
 
         System.out.print("What nominee would you like to see? ");
 
@@ -43,27 +45,37 @@ public class InternalProgram {
         while (input.hasNext()) {
 
             try {
+
                 String name = input.nextLine();
-
                 String fileName = name.toLowerCase();
-
                 File file = new File(fileName.replace(" ", "_") + ".txt");
-
                 BufferedReader br = new BufferedReader(new FileReader(file));
-
-
                 String st;
-                while ((st = br.readLine()) != null) {
+                while ((st = br.readLine()) !=null) System.out.println(st);
 
-                    System.out.println(st);
 
-                    break;
+                System.out.print("Would you like to to set up an interview with " + name + ". ");
+                String email = Files.readAllLines(Paths.get(String.valueOf(file))).get(15);
+                while (true) {
+                    String interview = input.next();
+                    if (interview.equals("1") && interview.matches("\\d+")) {
+                        System.out.println("Great..An email will be sent to " + name + "'s " + email.replace("Student ", ""));
+                        System.exit(0);
+                        break;
+                    } else if (interview.equals("2") && interview.matches("\\d+")) {
+                        System.exit(0);
+                        break;
+                    } else {
+                        System.out.println("Please say 1 or 2");
+                    }
                 }
             } catch (FileNotFoundException ex) {
                 System.out.println("The person you are trying to see is not currently nominated, please try again later.");
             }
 
         }
+
+
 
 
   }
