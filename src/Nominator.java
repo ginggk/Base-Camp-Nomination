@@ -124,7 +124,7 @@ public class Nominator {
         System.out.print("(1.) Is your nominee currently a senior? [Y]es or [N]o ");
         while (true) {
             String senior = input.nextLine();
-            if (senior.toLowerCase().equals("y")) {
+            if (senior.toLowerCase().equals("y") | senior.equals("yes")) {
 //                getHS();
                 isSenior = "yes";
 
@@ -132,7 +132,7 @@ public class Nominator {
 
 
 
-            } else if (senior.toLowerCase().equals("n")) {
+            } else if (senior.toLowerCase().equals("n") | senior.equals("no")) {
                 System.out.println("I'm sorry! They have to be a current senior!");
                 isSenior = "no";
                 System.exit(0);
