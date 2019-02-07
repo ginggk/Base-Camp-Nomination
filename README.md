@@ -8,7 +8,7 @@
 
 <p><b>1. Internal.java</b> has a welcome screen and shows the current names that has been nominated.</p>
 
-<p> You can choose one and it will show all of the questions and their answer. </p>
+      <p> - You can choose a name and it will show all of the questions and their answer. </p>
 
 <p><b>2. External.java</b> has a welcome screen to welcome the nominator and shows how many questions there are.</p>
   <p> It also takes the information and writes it to a file called "nomineenames.txt" and also writes their answers and the questions in a txt file with their name as the file name.</p>
