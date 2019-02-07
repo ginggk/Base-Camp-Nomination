@@ -24,10 +24,30 @@ public class Nominee {
         }
 
 
+    public boolean isValidStrings(String s) {
+        String n = "[a-zA-Z]+$";
+        Pattern pattern = Pattern.compile(n);
+        return pattern.matcher(s).matches();
+
+
+
+
+    }
+
         public void getName() {
             System.out.print("(2.) Nominee's full name: ");
-            String nameInput = input.nextLine();
-            name = nameInput;
+            while (true) {
+                String nameInput = input.nextLine();
+                if (isValidStrings(nameInput)) {
+                    name = nameInput;
+                    break;
+                }
+                else {
+                    System.out.println("Insert your real name!");
+                }
+            }
+
+
 
         }
 
@@ -78,11 +98,12 @@ public class Nominee {
         public boolean isPhoneValid(long phone) {
             String phoneReg = "\\d{10}";
 
-
             String  result = Long.toString(phone);
             Pattern p = Pattern.compile(phoneReg);
             return p.matcher(result).matches();
         }
+
+
 
 
 
@@ -107,9 +128,19 @@ public class Nominee {
 
         public void getHS() {
             System.out.print("(1.) What high school are you currently in? ");
-            String hs = input.nextLine();
-            hsGradFrom = hs;
-            getName();
+            while (true) {
+                String hs = input.nextLine();
+                if (isValidStrings(hs)) {
+                    hsGradFrom = hs;
+                    getName();
+                    break;
+                }
+                else {
+                    System.out.println("Insert your high School!");
+                }
+            }
+
+
 
         }
 
@@ -149,10 +180,20 @@ public class Nominee {
     }
 
         public void getPosition() {
-            System.out.print("Your current position: ");
-            String positionChoice = input.nextLine();
+            while (true) {
+                System.out.print("Your current position: ");
+                String positionChoice = input.nextLine();
+                if (isValidStrings(positionChoice)) {
+                    position = positionChoice;
+                    break;
+                }
+                else {
+                    System.out.println("Insert your position!");
+                }
 
-            position = positionChoice;
+
+            }
+
 
 
         }

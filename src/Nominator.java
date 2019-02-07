@@ -1,17 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Nominator {
     Scanner input = new Scanner(System.in);
     String isSenior;
-    String hsGradFrom;
     String name;
     String email;
-    Double distanceToDrive;
     String phone;
-    ArrayList<NominatorInfo> nominees = new ArrayList<>();
-    ArrayList<NominatorQuestions> questions = new ArrayList<>();
     String attendance;
     String contact;
     String position;
@@ -42,10 +39,30 @@ public class Nominator {
 
     }
 
+    public boolean isValidStrings(String s) {
+        String n = "[a-zA-Z]+$";
+        Pattern pattern = Pattern.compile(n);
+        return pattern.matcher(s).matches();
+
+
+
+
+    }
+
     public void getName() {
         System.out.print("(2.) Nominator's full name: ");
-        String nameInput = input.nextLine();
-        name = nameInput;
+        while (true) {
+            String nameInput = input.nextLine();
+            if (isValidStrings(nameInput)) {
+                name = nameInput;
+                break;
+            }
+            else {
+                System.out.println("Insert your real name! ");
+            }
+
+        }
+
     }
 
     public void getEmail() {
@@ -105,8 +122,18 @@ public class Nominator {
 
     public void nomineesName() {
         System.out.print("(3.) What is your nominee's name? ");
-        String nomName = input.nextLine();
-        nomineeName = nomName;
+        while (true) {
+            String nomName = input.nextLine();
+            if (isValidStrings(nomName)) {
+                nomineeName = nomName;
+                break;
+            }
+            else {
+                System.out.println("Insert a valid name!");
+            }
+        }
+
+
 
     }
 
@@ -145,11 +172,22 @@ public class Nominator {
 
     public void getAttendance() {
         System.out.print("(5.) How many days has your nominee been absent from school? ");
-        String nomineeAttendance = input.nextLine();
+        while (true) {
+            String nomineeAttendance = input.nextLine();
+            if (nomineeAttendance.matches("\\d+")) {
+                attendance = nomineeAttendance;
+                relationshipToNominee();
+                break;
+
+            }
+            else {
+                System.out.println("Insert valid numbers of days missed! ");
+            }
 
 
-        attendance = nomineeAttendance;
-        relationshipToNominee();
+
+        }
+
 
     }
 
@@ -182,9 +220,19 @@ public class Nominator {
 
     public void getPosition() {
         System.out.print("(4.) Your current position: ");
-        String positionChoice = input.nextLine();
+        while (true) {
+            String positionChoice = input.nextLine();
+            if (isValidStrings(positionChoice)) {
+                position = positionChoice;
+                break;
+            }
+            else {
+                System.out.println("Insert your postion!");
+            }
+        }
 
-        position = positionChoice;
+
+
 
 
     }
@@ -198,39 +246,87 @@ public class Nominator {
 
     public void relationshipToNominee() {
         System.out.print("(6.) What is your relationship to your nominee? ");
-        String relationship = input.nextLine();
+        while (true) {
+            String relationship = input.nextLine();
+            if (isValidStrings(relationship)) {
+                nomineeRelationship = relationship;
+                break;
+            }
+            else {
+                System.out.println("Insert your relationship!");
+            }
+        }
 
-        nomineeRelationship = relationship;
+
+
     }
 
     public void question2() {
         Scanner inputQuestion2 = new Scanner(System.in);
         System.out.println("\n(2.) Perseverance: Is there any evidence of the applicant being engaged" +
                 "\n in something they are passionate about? ");
-        String opinionQ2 = inputQuestion2.nextLine();
-        answerQ2 = opinionQ2;
+        while (true) {
+            String opinionQ2 = inputQuestion2.nextLine();
+            if (isValidStrings(opinionQ2)) {
+                answerQ2 = opinionQ2;
+                break;
+            }
+            else {
+                System.out.println("Go ahead and answer the question!");
+            }
+        }
+
+
+
 
     }
     public void question3() {
         Scanner inputQuestion3 = new Scanner(System.in);
         System.out.println("\n(3.) Dedication: Do you think the applicant would be able to reliably attend\n the program five days a week in Water Valley? ");
-        String opinionQ3 = inputQuestion3.nextLine();
-        answerQ3 = opinionQ3;
+        while (true) {
+            String opinionQ3 = inputQuestion3.nextLine();
+            if (isValidStrings(opinionQ3)) {
+                answerQ3 = opinionQ3;
+                break;
+            }
+            else {
+                System.out.println("Go ahead and answer the question!");
+            }
+        }
+
     }
 
     public void question4() {
         Scanner inputQuestion4 = new Scanner(System.in);
         System.out.println("\n(4.) Work Ethic / Heart: Why does this student deserve a position at Base Camp? ");
-        String opinionQ4 = inputQuestion4.nextLine();
-        answerQ4 = opinionQ4;
+        while (true) {
+            String opinionQ4 = inputQuestion4.nextLine();
+            if (isValidStrings(opinionQ4)) {
+                answerQ4 = opinionQ4;
+                break;
+            }
+            else {
+                System.out.println("Go ahead and answer the question!");
+            }
+        }
+
     }
 
     public void question1() {
         Scanner inputQuestion1 = new Scanner(System.in);
 
         System.out.println("\n(1.) Aptitude: Do you have any experiences when this student has demonstrated a strong ability\n to think logically and/or strategically? ");
-        String opinionQ1 = inputQuestion1.nextLine();
-        answerQ1 = opinionQ1;
+        while (true) {
+            String opinionQ1 = inputQuestion1.nextLine();
+            if (isValidStrings(opinionQ1)) {
+                answerQ1 = opinionQ1;
+                break;
+            }
+            else {
+                System.out.println("Go ahead and answer the question!");
+            }
+        }
+
     }
 
 
