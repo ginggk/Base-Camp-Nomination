@@ -22,8 +22,9 @@ public class ExternalProgram {
 
         BufferedWriter nomineeName = new BufferedWriter(
                 new FileWriter(textFile, true));
-        nomineeName.write("Name of nominee: " + nominee.name + "\n");
-        nomineeName.write("Date of nomination: " + reportDate);
+        nomineeName.write("\nName of nominee: " + nominee.name + "\n");
+
+        nomineeName.write("Date of nomination: " + reportDate + "\n");
 
         nomineeName.close();
 

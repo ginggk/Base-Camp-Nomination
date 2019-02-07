@@ -95,7 +95,7 @@ public class Nominee {
                     distanceToDrive = driveDis;
                     break;
                 } else {
-                    System.out.println("That is not a valid distance.");
+                    System.out.println("Please provide a valid distance.");
 
                 }
 
