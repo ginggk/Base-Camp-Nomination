@@ -53,13 +53,13 @@ public class InternalProgram {
                 String st;
                 while ((st = br.readLine()) !=null) System.out.println(st);
 
-
-                System.out.print("Would you like to to set up an interview with " + name + ". ");
+                System.out.println("---------------------------------------------------------");
+                System.out.print("Would you like to to set up an interview with " + name + "? \n ([1] for yes, [2] for no) ");
                 String email = Files.readAllLines(Paths.get(String.valueOf(file))).get(15);
                 while (true) {
                     String interview = input.next();
                     if (interview.equals("1") && interview.matches("\\d+")) {
-                        System.out.println("Great..An email will be sent to " + name + "'s " + email.replace("Student ", ""));
+                        System.out.println("Great! A default email will be sent to " + name + "'s " + email.replace("Student ", "") + ".");
                         System.exit(0);
                         break;
                     } else if (interview.equals("2") && interview.matches("\\d+")) {
