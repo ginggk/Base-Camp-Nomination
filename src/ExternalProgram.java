@@ -35,7 +35,7 @@ public class ExternalProgram {
         if (file.matches(file)) {
             BufferedWriter out = new BufferedWriter(
                     new FileWriter(file));
-            out.write("This is the Nominator's information\n");
+            out.write("\nThis is the Nominator's information\n");
             out.write("-------------------------------------------------\n");
             out.write(String.format("Name: %s", student.name + "\n"));
             out.write(String.format("Nominator's Email: %s", student.email + "\n"));
